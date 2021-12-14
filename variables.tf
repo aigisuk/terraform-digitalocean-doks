@@ -1,13 +1,19 @@
 variable "cluster_name" {
   description = "A name for the Kubernetes cluster."
   type        = string
-  default     = "dev-cluster-01"
+  default     = "dev-cluster"
 }
 
 variable "region" {
   type        = string
   description = "The region where the Kubernetes cluster will be created."
   default     = "fra1"
+}
+
+variable "vpc_uuid" {
+  type        = string
+  description = "The ID of the VPC where the Kubernetes cluster will be located."
+  default     = null
 }
 
 variable "tags" {
@@ -43,7 +49,7 @@ variable "size" {
 variable "node_count" {
   type        = number
   description = "The number of Droplet instances in the node pool."
-  default     = 1
+  default     = 3
 }
 
 variable "min_nodes" {

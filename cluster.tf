@@ -1,7 +1,8 @@
 resource "digitalocean_kubernetes_cluster" "doks" {
-  name    = var.cluster_name
-  region  = var.region
-  version = var.kubernetes_version == null ? data.digitalocean_kubernetes_versions.doks.latest_version : var.kubernetes_version
+  name     = var.cluster_name
+  region   = var.region
+  version  = var.kubernetes_version == null ? data.digitalocean_kubernetes_versions.doks.latest_version : var.kubernetes_version
+  vpc_uuid = var.vpc_uuid == null ? data.digitalocean_vpc.doks.id : var.vpc_uuid
 
   auto_upgrade = var.auto_upgrade
   tags         = var.tags
