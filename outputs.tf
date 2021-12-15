@@ -17,6 +17,10 @@ output "cluster_id" {
   value = digitalocean_kubernetes_cluster.doks.id
 }
 
+output "cluster_name" {
+  value = var.cluster_name
+}
+
 output "cluster_vpc" {
   value = var.vpc_uuid == null ? data.digitalocean_vpc.doks.id : var.vpc_uuid
 }
