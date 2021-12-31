@@ -18,7 +18,7 @@ output "cluster_id" {
 }
 
 output "cluster_name" {
-  value = var.cluster_name
+  value = digitalocean_kubernetes_cluster.doks.name
 }
 
 output "cluster_vpc" {
